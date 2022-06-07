@@ -7,4 +7,4 @@ POST http://localhost:8000/tokenGeneration
 ###
 
 POST http://localhost:8000/tokenVerification
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJvY3RiYXRjaCIsImVtYWlsIjoib2N0QGdtYWlsLmNvbSIsImlhdCI6MTY1NDYxODcxOSwiZXhwIjoxNjU0NjE4Nzc5fQ.TKuYLY-U5hLcI3vldOc4a6f8ZR5xbBz0U2Hxi6rWwvk
+Authorization: Bearer reqtoken
