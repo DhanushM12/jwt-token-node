@@ -9,21 +9,33 @@ app.get('/', (req, res) => {
     })
 })
 
+// jwt token creation
 app.post('/tokenGeneration', (req, res) => {
     const user = {
         id: 1,
         username: 'octbatch',
         email: 'oct@gmail.com'
     }
-    jwt.sign(user, 'secretkey', function(err, token) {
+    jwt.sign(user, 'secretkey', { expiresIn: '60s'}, function(err, token) {
         res.json({
             token
         })
       });
 })
 
+// token verification api
 app.post('/tokenVerification', takeToken,  (req, res) => {
-
+    jwt.verify(req.token, 'secretkey', function(err, data) {
+        if(err){
+            res.sendStatus(403);
+        }
+        else{
+            res.json({
+                message: 'user access granted',
+                data
+            })
+        }
+      });
 })
 // middleware
 function takeToken(req, res, next){
